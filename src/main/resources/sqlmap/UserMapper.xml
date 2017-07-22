@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.frankbearzou.mybatis.mapper.UserMapper">
+
+    <select id="findUserById" parameterType="int" resultType="com.frankbearzou.mybatis.User">
+        select * from user where id = #{id}
+    </select>
+
+    <select id="findUserByName" parameterType="java.lang.String" resultType="com.frankbearzou.mybatis.User">
+        select * from user where username like '%${value}%'
+    </select>
+
+    <insert id="insertUser" parameterType="com.frankbearzou.mybatis.User">
+        <selectKey keyProperty="id" order="AFTER" resultType="int">
+            select last_insert_id()
+        </selectKey>
+        insert into user(username, birthday, sex, address) values(#{username}, #{birthday}, #{sex}, #{address})
+    </insert>
+
+    <update id="updateUser" parameterType="com.frankbearzou.mybatis.User">
+        update user set username=#{username}, birthday=#{birthday}, sex=#{sex}, address=#{address} where id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{value}
+    </delete>
+</mapper>
