@@ -12,6 +12,28 @@
         select * from user where username like '%${value}%'
     </select>
 
+    <select id="findUserCount" parameterType="com.frankbearzou.mybatis.UserVO" resultType="int">
+        select count(*) from user
+        <where>
+            <if test="user != null">
+                <if test="user.sex != null and user.sex != ''">
+                    and sex = #{user.sex}
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <select id="findUserList" parameterType="com.frankbearzou.mybatis.UserVO" resultType="com.frankbearzou.mybatis.UserCustom">
+        select * from user
+        <where>
+            <if test="user != null">
+                <if test="user.sex != null and user.sex != ''">
+                    and sex = #{user.sex}
+                </if>
+            </if>
+        </where>
+    </select>
+
     <insert id="insertUser" parameterType="com.frankbearzou.mybatis.User">
         <selectKey keyProperty="id" order="AFTER" resultType="int">
             select last_insert_id()

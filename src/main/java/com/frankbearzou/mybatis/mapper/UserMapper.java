@@ -1,12 +1,16 @@
 package com.frankbearzou.mybatis.mapper;
 
 import com.frankbearzou.mybatis.User;
+import com.frankbearzou.mybatis.UserCustom;
+import com.frankbearzou.mybatis.UserVO;
 
 import java.util.List;
 
 public interface UserMapper {
     public User findUserById(int id);
     public List<User> findUserByName(String name);
+    public int findUserCount(UserVO userVO);
+    public List<UserCustom> findUserList(UserVO userVO);
     public void addUser(User user);
     public void updateUser(User user);
     public void deleteUser(int id);
