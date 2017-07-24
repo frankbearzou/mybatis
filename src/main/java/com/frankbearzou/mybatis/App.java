@@ -3,6 +3,7 @@ package com.frankbearzou.mybatis;
 
 import com.frankbearzou.mybatis.dao.UserDAO;
 import com.frankbearzou.mybatis.dao.impl.UserDAOImpl;
+import com.frankbearzou.mybatis.pojo.User;
 
 import java.util.List;
 

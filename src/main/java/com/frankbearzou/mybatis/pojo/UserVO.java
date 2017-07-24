@@ -1,4 +1,4 @@
-package com.frankbearzou.mybatis;
+package com.frankbearzou.mybatis.pojo;
 
 public class UserVO {
     private User user;

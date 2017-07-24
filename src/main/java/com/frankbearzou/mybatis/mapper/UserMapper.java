@@ -1,8 +1,8 @@
 package com.frankbearzou.mybatis.mapper;
 
-import com.frankbearzou.mybatis.User;
-import com.frankbearzou.mybatis.UserCustom;
-import com.frankbearzou.mybatis.UserVO;
+import com.frankbearzou.mybatis.pojo.User;
+import com.frankbearzou.mybatis.pojo.UserCustom;
+import com.frankbearzou.mybatis.pojo.UserVO;
 
 import java.util.List;
 

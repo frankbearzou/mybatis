@@ -1,7 +1,7 @@
 package com.frankbearzou.mybatis.dao.impl;
 
 
-import com.frankbearzou.mybatis.User;
+import com.frankbearzou.mybatis.pojo.User;
 import com.frankbearzou.mybatis.dao.UserDAO;
 import org.junit.Before;
 import org.junit.Test;

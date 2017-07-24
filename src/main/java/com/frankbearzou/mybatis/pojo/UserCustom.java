@@ -1,4 +1,4 @@
-package com.frankbearzou.mybatis;
+package com.frankbearzou.mybatis.pojo;
 
 public class UserCustom extends User {
 

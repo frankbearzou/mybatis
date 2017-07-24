@@ -21,5 +21,9 @@
 
     <mappers>
         <mapper resource="sqlmap/UserMapper.xml"/>
+        <mapper resource="sqlmap/OrdersCustomMapper.xml"/>
+
+
+        <!--<package name="com.frankbearzou.mybatis.mapper" />-->
     </mappers>
 </configuration>
