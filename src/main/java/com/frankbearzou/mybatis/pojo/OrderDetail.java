@@ -1,6 +1,6 @@
 package com.frankbearzou.mybatis.pojo;
 
-public class OderDetail {
+public class OrderDetail {
     private Integer id;
     private Integer orders_id;
     private Integer items_id;
@@ -9,7 +9,19 @@ public class OderDetail {
     private Orders order;
     private Items item;
 
-    public OderDetail() {
+    public OrderDetail() {
+    }
+
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "id=" + id +
+                ", orders_id=" + orders_id +
+                ", items_id=" + items_id +
+                ", items_num=" + items_num +
+                ", order=" + order +
+                ", item=" + item +
+                '}';
     }
 
     public Integer getId() {
@@ -42,5 +54,21 @@ public class OderDetail {
 
     public void setItems_num(Integer items_num) {
         this.items_num = items_num;
+    }
+
+    public Orders getOrder() {
+        return order;
+    }
+
+    public void setOrder(Orders order) {
+        this.order = order;
+    }
+
+    public Items getItem() {
+        return item;
+    }
+
+    public void setItem(Items item) {
+        this.item = item;
     }
 }

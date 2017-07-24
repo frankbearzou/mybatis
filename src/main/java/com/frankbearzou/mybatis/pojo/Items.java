@@ -13,6 +13,18 @@ public class Items {
     public Items() {
     }
 
+    @Override
+    public String toString() {
+        return "Items{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", detail='" + detail + '\'' +
+                ", pic='" + pic + '\'' +
+                ", createtime=" + createtime +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

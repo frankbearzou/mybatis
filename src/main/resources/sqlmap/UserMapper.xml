@@ -34,6 +34,16 @@
         </where>
     </select>
 
+    <select id="findUserAmount" resultType="hashmap">
+        select user.id, user.username, sum(items.price * od.items_num) subtotal
+        from orders, user, orderdetail od, items
+        where orders.user_id = user.id
+        and orders.id = od.orders_id
+        and od.items_id = items.id
+        group by id, username
+        order by subtotal desc
+    </select>
+
     <insert id="insertUser" parameterType="com.frankbearzou.mybatis.pojo.User">
         <selectKey keyProperty="id" order="AFTER" resultType="int">
             select last_insert_id()

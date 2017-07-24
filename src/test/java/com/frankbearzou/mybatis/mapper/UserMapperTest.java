@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -76,6 +77,23 @@ public class UserMapperTest {
             List<UserCustom> userCustoms = userMapper.findUserList(userVO);
             System.out.println(userCustoms);
             assertTrue(userCustoms.size() > 0);
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testFindUserAmount() {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+            List<Map<String, Object>> userAmount = mapper.findUserAmount();
+            for (Map<String, Object> map : userAmount) {
+                System.out.format("id: %s, username: %s, subtotal: %s\n",
+                        map.get("id"),
+                        map.get("username"),
+                        map.get("subtotal"));
+            }
         } finally {
             sqlSession.close();
         }

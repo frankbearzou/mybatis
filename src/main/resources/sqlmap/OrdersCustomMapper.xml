@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.frankbearzou.mybatis.mapper.OrdersCustomMapper">
+
     <resultMap id="findOrdersUserResultMap" type="com.frankbearzou.mybatis.pojo.Orders">
         <id column="id" property="id" />
         <result column="user_id" property="user_id" />
@@ -23,5 +24,40 @@
         select orders.*, user.username, user.sex, user.address
         from orders, user
         where orders.user_id = user.id
+    </select>
+
+
+    <resultMap id="findOrdersWithDetailsResultMap" type="com.frankbearzou.mybatis.pojo.Orders">
+        <id column="id" property="id" />
+        <result column="user_id" property="user_id" />
+        <result column="number" property="number" />
+        <result column="createtime" property="createtime" />
+        <result column="note" property="note" />
+
+        <association property="user" javaType="com.frankbearzou.mybatis.pojo.User">
+            <id column="id" property="id" />
+            <result column="username" property="username" />
+            <result column="sex" property="sex" />
+            <result column="address" property="address" />
+        </association>
+
+        <collection property="orderDetails" ofType="com.frankbearzou.mybatis.pojo.OrderDetail">
+            <id column="orderdetail_id" property="id" />
+            <result column="items_id" property="items_id" />
+            <result column="items_num" property="items_num" />
+
+            <association property="item" javaType="com.frankbearzou.mybatis.pojo.Items">
+                <id column="items_id" property="id" />
+                <result column="name" property="name" />
+            </association>
+        </collection>
+    </resultMap>
+
+    <select id="findOrdersWithDetails" resultMap="findOrdersWithDetailsResultMap">
+        select orders.*, user.username, user.sex, user.address, od.id orderdetail_id, od.items_id, items.name, od.items_num
+        from orders, user, orderdetail od, items
+        where orders.user_id = user.id
+        and orders.id = od.orders_id
+        and od.items_id = items.id
     </select>
 </mapper>

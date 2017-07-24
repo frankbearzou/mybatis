@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface OrdersCustomMapper {
     public List<Orders> findOrdersUser();
+    public List<Orders> findOrdersWithDetails();
+
 }

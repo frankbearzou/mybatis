@@ -44,4 +44,19 @@ public class OrdersCustomMapperTest {
             sqlSession.close();
         }
     }
+
+    @Test
+    public void testFindOrdersWithDetails() {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            OrdersCustomMapper mapper = sqlSession.getMapper(OrdersCustomMapper.class);
+            List<Orders> orders = mapper.findOrdersWithDetails();
+//            System.out.println(orders);
+            orders.forEach(System.out::println);
+            System.out.println();
+            System.out.println(orders.get(1).getOrderDetails());
+        } finally {
+            sqlSession.close();
+        }
+    }
 }

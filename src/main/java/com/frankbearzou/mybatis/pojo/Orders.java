@@ -11,7 +11,7 @@ public class Orders {
     private String note;
 
     private User user;
-    private List<OderDetail> oderDetails;
+    private List<OrderDetail> orderDetails;
 
     public Orders() {
     }
@@ -25,7 +25,7 @@ public class Orders {
                 ", createtime=" + createtime +
                 ", note='" + note + '\'' +
                 ", user=" + user +
-                ", oderDetails=" + oderDetails +
+                ", orderDetails=" + orderDetails +
                 '}';
     }
 
@@ -77,11 +77,11 @@ public class Orders {
         this.user = user;
     }
 
-    public List<OderDetail> getOderDetails() {
-        return oderDetails;
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
     }
 
-    public void setOderDetails(List<OderDetail> oderDetails) {
-        this.oderDetails = oderDetails;
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 }
